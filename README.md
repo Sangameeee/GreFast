@@ -9,31 +9,8 @@ An interactive, responsive flashcard application built for mastering **GregMat's
 
 ---
 
-> ⚠️ **Disclaimer & Note:**  
-> Most of the development for this project was done by AI. I built this tool for my own GRE study tailored to my personal preferences and workflow. While setting up and updating the steps and data, the AI may have made mistakes (e.g., in definitions, groupings, or explanations). Please cross-verify any doubtful words with official resources!
-
----
-
-## 📸 Demo & Screenshots
-
-### 1. Flashcards & Interactive Rating
-Master each group with confidence indicators, text-to-speech pronunciation, and quick rating buttons (`1 • Know It`, `2 • Review`, `3 • Hard Word`).
-
-![Flashcards Home Page](images/home_page.png)
-
----
-
-### 2. Practice Rated Words & Targeted Drill
-Filter words based on your personal rating: focus on words you regularly forget (Red), occasionally forget (Orange), or drill all difficult words together.
-
-![Practice Rated Feature](images/feature.png)
-
----
-
-### 3. Custom Words & Big Book Vocabulary
-Add your own custom words from the GRE Big Book, mock tests, or reading passages with custom notes, synonyms, and test references.
-
-![Add Custom Feature](images/add_feature.png)
+> 💡 **Note:**  
+> Most of the development for this application was done with AI. I built this tool for my own GRE preparation tailored to my personal study preferences and workflow.
 
 ---
 
@@ -47,8 +24,8 @@ Add your own custom words from the GRE Big Book, mock tests, or reading passages
 - **🎯 Targeted Practice Modes**:
   - Drill down into specific ratings (e.g., review only your Level 2 & 3 words).
   - Synonym clusters and semantic groupings for pattern recognition.
-- **📖 Big Book & Custom Lists**: Easily add, edit, and practice your own custom vocabulary words.
-- **🔊 Audio Pronunciation**: Built-in speech synthesis to hear correct word pronunciations.
+- **📖 Big Book & Custom Lists**: Easily add, edit, and practice your own custom vocabulary words from official tests or reading passages.
+- **🔊 Audio Pronunciation**: Built-in speech synthesis to listen to word pronunciations.
 - **⌨️ Rich Keyboard Shortcuts**: Study without touching your mouse (`Space` to flip, `Arrow Keys` / `A` / `D` to navigate, `1`/`2`/`3` to rate, `S` to pronounce, `F` for focus mode).
 - **🌗 Dark / Light Theme & Focus Mode**: Clean typography, distraction-free studying, and smooth animations.
 - **💾 100% Offline & Private**: All ratings and custom words persist automatically in your browser (`localStorage`). No account or sign-in needed.
@@ -72,6 +49,29 @@ Add your own custom words from the GRE Big Book, mock tests, or reading passages
 
 ---
 
+## 📸 Screenshots & Demos
+
+### 1. Flashcards & Interactive Rating
+Master each group with confidence indicators, text-to-speech pronunciation, and quick rating buttons (`1 • Know It`, `2 • Review`, `3 • Hard Word`).
+
+![Flashcards Home Page](images/home_page.png)
+
+---
+
+### 2. Practice Rated Words & Targeted Drill
+Filter words based on your personal rating: focus on words you regularly forget (Red), occasionally forget (Orange), or drill all difficult words together.
+
+![Practice Rated Feature](images/feature.png)
+
+---
+
+### 3. Custom Words & Big Book Vocabulary
+Add your own custom words from the GRE Big Book, mock tests, or reading passages with custom notes, synonyms, and test references.
+
+![Add Custom Feature](images/add_feature.png)
+
+---
+
 ## 💻 Local Usage
 
 You can also run this locally on your computer:
@@ -79,4 +79,4 @@ You can also run this locally on your computer:
    ```bash
    git clone git@github.com:Sangameeee/GRE-vocabulary-GregMat-34-Groups-1024-words-flashcard.git
    ```
-2. Double-click [`index.html`](index.html) to open in any web browser — no build steps, Node.js, or server setup required.
+2. Double-click [`index.html`](index.html) to open in any web browser — no build steps or server setup needed.
