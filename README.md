@@ -1,27 +1,58 @@
-# 🎓 GRE Vocab Master
+# 🎓 GRE Vocab Master (GregMat 34 Groups)
 
-An interactive, responsive web application for mastering all **34 Groups (1,020 high-frequency words)** for GRE verbal preparation.
+An interactive, responsive flashcard application built for mastering **GregMat's 34 Groups (1,020+ high-frequency GRE words)**, complete with custom word lists, memory ratings, and dedicated practice modes.
 
-![GRE Vocab Master](https://img.shields.io/badge/GRE-Vocab%20Master-6366f1?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Live-emerald?style=for-the-badge)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Open%20Web%20App-22c55e?style=for-the-badge&logo=github)](https://sangameeee.github.io/GRE-vocabulary-GregMat-34-Groups-1024-words-flashcard/)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
+
+👉 **Live App:** [https://sangameeee.github.io/GRE-vocabulary-GregMat-34-Groups-1024-words-flashcard/](https://sangameeee.github.io/GRE-vocabulary-GregMat-34-Groups-1024-words-flashcard/)
 
 ---
 
-## ✨ Features
+> ⚠️ **Disclaimer & Note:**  
+> Most of the development for this project was done by AI. I built this tool for my own GRE study tailored to my personal preferences and workflow. While setting up and updating the steps and data, the AI may have made mistakes (e.g., in definitions, groupings, or explanations). Please cross-verify any doubtful words with official resources!
 
-- **📚 34 Complete Word Groups**: 1,020 curated GRE vocabulary words complete with definitions, parts of speech, and contextual example sentences.
-- **⭐ 1-2-3 Rating System**: Rate words based on your confidence level:
-  - `1`: Need to review / Hard
-  - `2`: Somewhat familiar / Neutral
-  - `3`: Mastered / Easy
-- **🎯 Dedicated Practice Modes**:
-  - Filter and drill down into only your rated words (e.g. review all Level 1 words).
+---
+
+## 📸 Demo & Screenshots
+
+### 1. Flashcards & Interactive Rating
+Master each group with confidence indicators, text-to-speech pronunciation, and quick rating buttons (`1 • Know It`, `2 • Review`, `3 • Hard Word`).
+
+![Flashcards Home Page](images/home_page.png)
+
+---
+
+### 2. Practice Rated Words & Targeted Drill
+Filter words based on your personal rating: focus on words you regularly forget (Red), occasionally forget (Orange), or drill all difficult words together.
+
+![Practice Rated Feature](images/feature.png)
+
+---
+
+### 3. Custom Words & Big Book Vocabulary
+Add your own custom words from the GRE Big Book, mock tests, or reading passages with custom notes, synonyms, and test references.
+
+![Add Custom Feature](images/add_feature.png)
+
+---
+
+## ✨ Key Features
+
+- **📚 34 Complete Word Groups**: 1,020+ curated GRE vocabulary words complete with definitions, parts of speech, and contextual example sentences.
+- **⭐ 1-2-3 Rating System**:
+  - `1`: Know it / Mastered (Green)
+  - `2`: Need review / Occasionally forget (Orange)
+  - `3`: Hard word / Regularly forget (Red)
+- **🎯 Targeted Practice Modes**:
+  - Drill down into specific ratings (e.g., review only your Level 2 & 3 words).
   - Synonym clusters and semantic groupings for pattern recognition.
-- **⌨️ Keyboard Shortcuts**: Seamless desktop flashcard navigation (`Space` to flip, `Arrow Keys` for navigation, `1`/`2`/`3` to rate, `F` for focus mode).
+- **📖 Big Book & Custom Lists**: Easily add, edit, and practice your own custom vocabulary words.
+- **🔊 Audio Pronunciation**: Built-in speech synthesis to hear correct word pronunciations.
+- **⌨️ Rich Keyboard Shortcuts**: Study without touching your mouse (`Space` to flip, `Arrow Keys` / `A` / `D` to navigate, `1`/`2`/`3` to rate, `S` to pronounce, `F` for focus mode).
 - **🌗 Dark / Light Theme & Focus Mode**: Clean typography, distraction-free studying, and smooth animations.
-- **💾 100% Offline & Private**: All ratings and study progress persist automatically in your browser (`localStorage`). No sign-ups required.
-- **🔄 Export & Import**: Backup or transfer your study progress across devices using JSON export/import.
+- **💾 100% Offline & Private**: All ratings and custom words persist automatically in your browser (`localStorage`). No account or sign-in needed.
+- **🔄 Export & Import**: Backup or transfer your study progress between devices using JSON export/import.
 
 ---
 
@@ -30,27 +61,22 @@ An interactive, responsive web application for mastering all **34 Groups (1,020 
 | Key | Action |
 | --- | --- |
 | `Space` | Flip card (Show / Hide definition) |
-| `→` or `J` | Next card |
-| `←` or `K` | Previous card |
-| `1` | Rate word as **1 (Need Review)** |
-| `2` | Rate word as **2 (Familiar)** |
-| `3` | Rate word as **3 (Mastered)** |
-| `S` | Shuffle current group |
+| `→` or `D` | Next card |
+| `←` or `A` | Previous card |
+| `1` | Rate word as **1 (Know It)** |
+| `2` | Rate word as **2 (Review)** |
+| `3` | Rate word as **3 (Hard Word)** |
+| `S` | Pronounce word (Audio) |
 | `F` | Toggle Focus Mode (distraction-free) |
-| `M` | Open/Close Mistakes & Errata Log |
 | `?` | Show Shortcuts cheat sheet |
-
----
-
-## 🚀 Live Demo
-
-You can host this directly on **GitHub Pages**:
-- **Live URL**: `https://<YOUR-USERNAME>.github.io/<REPO-NAME>/`
-
-Refer to [steps.md](steps.md) for deployment instructions.
 
 ---
 
 ## 💻 Local Usage
 
-Simply double-click [`index.html`](index.html) or open it with any web browser — no build steps or server setup needed!
+You can also run this locally on your computer:
+1. Clone the repository:
+   ```bash
+   git clone git@github.com:Sangameeee/GRE-vocabulary-GregMat-34-Groups-1024-words-flashcard.git
+   ```
+2. Double-click [`index.html`](index.html) to open in any web browser — no build steps, Node.js, or server setup required.
