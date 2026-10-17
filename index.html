@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GRE Vocab Master • 34 Groups Flashcards</title>
+  <meta name="description" content="Interactive GRE 34 Groups Vocabulary Flashcards with 1-2-3 rating system, keyboard shortcuts, dedicated rated words practice, and synonym clusters.">
+  
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-theme">
+
+  <!-- Top App Header -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand-section">
+        <div class="brand-logo">G</div>
+        <div class="brand-title-wrap">
+          <h1>GRE Vocab Master</h1>
+        </div>
+        <span class="brand-badge">34 Groups • 1,020 Words</span>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="nav-tabs" aria-label="Main Navigation">
+        <button class="nav-tab-btn active" id="tabBtnFlashcards" data-tab="flashcards">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Flashcards
+        </button>
+        <button class="nav-tab-btn" id="tabBtnRated" data-tab="rated-practice">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Practice Rated
+        </button>
+        <button class="nav-tab-btn" id="tabBtnClusters" data-tab="similar-clusters">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          Similar Words
+        </button>
+        <button class="nav-tab-btn" id="tabBtnCustom" data-tab="custom-words">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          Custom (Big Book)
+        </button>
+        <button class="nav-tab-btn" id="tabBtnDirectory" data-tab="directory">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Search & List
+        </button>
+      </nav>
+
+      <!-- Header Quick Actions -->
+      <div class="header-actions">
+        <button class="btn-icon" id="btnOpenGridModal" title="Jump to card in deck" aria-label="Jump to Card">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        </button>
+        <button class="btn-icon" id="btnThemeToggle" title="Toggle Theme" aria-label="Toggle Theme">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="btn-icon" id="btnResetModal" title="Reset / Statistics" aria-label="Reset & Settings">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- App Content Area -->
+  <main class="app-container">
+
+    <!-- Global Deck Controls Bar -->
+    <section class="deck-controls-bar">
+      <div class="group-selector-wrap">
+        <label for="groupSelect" class="group-selector-label">Group:</label>
+        <select id="groupSelect" class="custom-select" aria-label="Select GRE Group">
+          <!-- Populated by JS for Groups 1 to 34 + All Groups -->
+        </select>
+      </div>
+
+      <!-- Live Rating Status Pills for Active Deck -->
+      <div class="deck-stats-pills" id="deckStatsPills">
+        <div class="stat-pill pill-green" id="pillKnow" title="Know (Rating 1)">
+          <span>●</span> <span id="countGreen">0</span> Know (1)
+        </div>
+        <div class="stat-pill pill-orange" id="pillReview" title="Occasionally Forget (Rating 2)">
+          <span>●</span> <span id="countOrange">0</span> Review (2)
+        </div>
+        <div class="stat-pill pill-red" id="pillHard" title="Regularly Forget (Rating 3)">
+          <span>●</span> <span id="countRed">0</span> Hard (3)
+        </div>
+        <div class="stat-pill pill-unrated" id="pillUnrated" title="Not Rated">
+          <span>○</span> <span id="countUnrated">30</span> Unrated
+        </div>
+      </div>
+
+      <!-- Quick Toggles -->
+      <div class="deck-toggles">
+        <button class="toggle-btn" id="btnToggleShuffle" title="Shuffle Cards">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+          Shuffle
+        </button>
+        <button class="toggle-btn active" id="btnToggleAutoAdvance" title="Automatically move to next card on rating">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/></svg>
+          Auto-Advance
+        </button>
+      </div>
+    </section>
+
+    <!-- ================= VIEW 1: FLASHCARDS ================= -->
+    <section class="view-tab view-flashcards" id="viewFlashcards">
+      <!-- Deck Multi-Progress Bar -->
+      <div class="deck-progress-container">
+        <div class="progress-header">
+          <span id="cardCounterText">Card 1 of 30</span>
+          <span id="groupProgressPercent">0% Mastered</span>
+        </div>
+        <div class="multi-progress-bar" id="multiProgressBar">
+          <div class="progress-segment progress-green" id="progSegGreen" style="width: 0%;"></div>
+          <div class="progress-segment progress-orange" id="progSegOrange" style="width: 0%;"></div>
+          <div class="progress-segment progress-red" id="progSegRed" style="width: 0%;"></div>
+          <div class="progress-segment progress-unrated" id="progSegUnrated" style="width: 100%;"></div>
+        </div>
+      </div>
+
+      <!-- 3D Interactive Flashcard -->
+      <div class="flashcard-stage" id="flashcardStage">
+        <div class="flashcard" id="flashcard">
+          
+          <!-- Front Face -->
+          <div class="card-face card-face-front">
+            <div class="card-face-header">
+              <div class="card-tag-group">
+                <span class="card-group-tag" id="cardGroupTagFront">Group 1</span>
+                <span class="multi-meaning-badge" id="cardMultiDefBadgeFront" style="display: none;">2 Meanings</span>
+              </div>
+              <div class="card-rating-badge badge-unrated" id="cardRatingBadgeFront">
+                <span>Unrated</span>
+              </div>
+            </div>
+
+            <div class="card-center-front">
+              <h2 class="vocab-word" id="vocabWordFront">abound</h2>
+              <div class="word-actions">
+                <button class="btn-speak" id="btnSpeak" title="Pronounce word (Press 'S')" aria-label="Pronounce word (Press 'S')">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  <span>Pronounce</span>
+                  <span class="kbd-badge">S</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="card-face-footer">
+              <span class="flip-hint">
+                <span class="kbd-badge">Space</span> or click to flip definition
+              </span>
+            </div>
+          </div>
+
+          <!-- Back Face -->
+          <div class="card-face card-face-back">
+            <div class="card-face-header">
+              <div class="card-tag-group">
+                <span class="card-group-tag" id="cardGroupTagBack">Group 1</span>
+                <span class="multi-meaning-badge" id="cardMultiDefBadgeBack" style="display: none;">2 Meanings</span>
+              </div>
+              <div class="card-rating-badge badge-unrated" id="cardRatingBadgeBack">
+                <span>Unrated</span>
+              </div>
+            </div>
+
+            <div class="card-center-back">
+              <div class="back-word-row">
+                <h3 class="back-word-title" id="vocabWordBack">abound</h3>
+                <button class="btn-speak btn-speak-sm" id="btnSpeakBack" title="Pronounce word (Press 'S')" aria-label="Pronounce word (Press 'S')">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  <span>Pronounce</span>
+                  <span class="kbd-badge">S</span>
+                </button>
+              </div>
+              <div class="definition-box" id="vocabDefinition">
+                be present in large quantities
+              </div>
+
+              <div class="similar-words-box" id="backSynonymsBox">
+                <span class="similar-label">Thematic Synonyms in Group:</span>
+                <div class="synonym-chips" id="backSynonymChips">
+                  <!-- Chips injected via JS -->
+                </div>
+              </div>
+            </div>
+
+            <div class="card-face-footer">
+              <span class="flip-hint">
+                <span class="kbd-badge">Space</span> or click to return
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Rating Action Bar (1, 2, 3) -->
+      <div class="rating-action-bar">
+        <button class="btn-rate btn-rate-1" id="btnRate1" title="I know this word (Key: 1)">
+          <span>1 • Know It</span>
+          <span class="rate-num-badge">1</span>
+        </button>
+        <button class="btn-rate btn-rate-2" id="btnRate2" title="I occasionally forget (Key: 2)">
+          <span>2 • Review</span>
+          <span class="rate-num-badge">2</span>
+        </button>
+        <button class="btn-rate btn-rate-3" id="btnRate3" title="I regularly forget (Key: 3)">
+          <span>3 • Hard Word</span>
+          <span class="rate-num-badge">3</span>
+        </button>
+      </div>
+
+      <!-- Flashcard Navigation Buttons -->
+      <div class="flashcard-nav-bar">
+        <button class="btn-nav" id="btnPrev" title="Previous Card (Key: A or Left Arrow)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          Previous <span class="kbd-badge">A</span>
+        </button>
+
+        <button class="btn-flip-trigger" id="btnFlip">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6"/><path d="M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+          Flip Card
+        </button>
+
+        <button class="btn-nav" id="btnNext" title="Next Card (Key: D or Right Arrow)">
+          Next <span class="kbd-badge">D</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+      <!-- Keyboard Shortcuts Legend Bar -->
+      <div class="keyboard-guide-bar">
+        <div class="key-hint">
+          <span class="kbd-badge">←</span> or <span class="kbd-badge">A</span> Prev
+        </div>
+        <div class="key-hint">
+          <span class="kbd-badge">→</span> or <span class="kbd-badge">D</span> Next
+        </div>
+        <div class="key-hint">
+          <span class="kbd-badge">Space</span> Flip
+        </div>
+        <div class="key-hint">
+          <span class="kbd-badge">S</span> Pronounce
+        </div>
+        <div class="key-hint">
+          <span class="kbd-badge">1</span> Green (Know)
+        </div>
+        <div class="key-hint">
+          <span class="kbd-badge">2</span> Orange (Review)
+        </div>
+        <div class="key-hint">
+          <span class="kbd-badge">3</span> Red (Hard)
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VIEW 2: RATED WORDS PRACTICE ================= -->
+    <section class="view-tab view-rated-practice" id="viewRatedPractice" style="display: none;">
+      <!-- Filter Bar for Rated Practice -->
+      <div class="rated-filter-header">
+        <div class="filter-pills-row">
+          <button class="filter-tab-pill active" data-filter="3" id="filterBtn3">
+            <span>●</span> Red: Regularly Forget (<span id="filterCount3">0</span>)
+          </button>
+          <button class="filter-tab-pill" data-filter="2" id="filterBtn2">
+            <span>●</span> Orange: Occasionally Forget (<span id="filterCount2">0</span>)
+          </button>
+          <button class="filter-tab-pill" data-filter="hard" id="filterBtnHard">
+            <span>●</span> Hard Words (2 & 3) (<span id="filterCountHard">0</span>)
+          </button>
+          <button class="filter-tab-pill" data-filter="1" id="filterBtn1">
+            <span>●</span> Green: Mastered (<span id="filterCount1">0</span>)
+          </button>
+          <button class="filter-tab-pill" data-filter="all" id="filterBtnAll">
+            All Rated (<span id="filterCountAll">0</span>)
+          </button>
+        </div>
+
+        <div class="group-selector-wrap">
+          <label for="ratedScopeSelect" class="group-selector-label">Scope:</label>
+          <select id="ratedScopeSelect" class="custom-select">
+            <option value="current">Current Group Only</option>
+            <option value="all">All 34 Groups</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Practice Deck for Rated Words -->
+      <div class="rated-practice-card-box" id="ratedPracticeFlashcards">
+        <!-- Will be dynamically controlled or displayed -->
+      </div>
+
+      <!-- Overview Cards Grid for this rating -->
+      <div class="rated-words-grid" id="ratedWordsGrid">
+        <!-- Injected via JS -->
+      </div>
+    </section>
+
+    <!-- ================= VIEW 3: SIMILAR WORDS & SYNONYM CLUSTERS ================= -->
+    <section class="view-tab view-similar-clusters" id="viewSimilarClusters" style="display: none;">
+      <!-- Sub-Navigation Toggle: Cross-Group vs Within Group -->
+      <div class="similar-subnav-bar">
+        <div class="similar-segmented-control">
+          <button class="similar-seg-btn active" id="btnSynModeCross" data-mode="cross">
+            🌐 Cross-Group Synonyms (All 34 Groups)
+          </button>
+          <button class="similar-seg-btn" id="btnSynModeGroup" data-mode="group">
+            📑 Within Current Group
+          </button>
+        </div>
+
+        <div class="search-input-wrap" style="max-width: 380px;">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="synSearchInput" class="search-input" style="padding: 0.6rem 1rem 0.6rem 2.6rem; font-size: 0.88rem;" placeholder="Search synonyms (e.g. loquacious, calm, dull)...">
+        </div>
+      </div>
+
+      <div class="clusters-hero">
+        <div class="clusters-hero-text">
+          <h2 id="clustersGroupTitle">Cross-Group Universal Synonyms • All 34 Groups</h2>
+          <p id="clustersHeroDesc">Words from all 34 GRE groups categorized by shared meaning, so you can learn synonyms across groups together.</p>
+        </div>
+      </div>
+
+      <div class="clusters-grid" id="clustersGrid">
+        <!-- Populated dynamically via JS -->
+      </div>
+    </section>
+
+    <!-- ================= VIEW 5: CUSTOM WORDS (BIG BOOK) ================= -->
+    <section class="view-tab view-custom-words" id="viewCustomWords" style="display: none;">
+      <div class="custom-words-hero">
+        <div class="custom-hero-text">
+          <h2>📖 Custom Words (Big Book) Vocabulary</h2>
+          <p>Add your own vocabulary words from the GRE Big Book, official tests, or reading passages. Rate and drill them anytime!</p>
+        </div>
+        <div class="custom-hero-actions">
+          <button class="btn-primary-action" id="btnPracticeCustomDeck">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Practice in Flashcards (<span id="customWordsDeckCount">0</span>)
+          </button>
+        </div>
+      </div>
+
+      <!-- Add Custom Word Card Form -->
+      <div class="custom-add-card">
+        <h3>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          Add New Vocabulary Word
+        </h3>
+        <form id="customWordForm" class="custom-form-grid" onsubmit="return false;">
+          <div class="form-group">
+            <label for="customInputWord">Word *</label>
+            <input type="text" id="customInputWord" class="form-input" placeholder="e.g., equivocate" required>
+          </div>
+          <div class="form-group">
+            <label for="customInputDef">Definition *</label>
+            <input type="text" id="customInputDef" class="form-input" placeholder="e.g., 1. first meaning 2. second meaning" required>
+            <small style="display: block; margin-top: 0.25rem; font-size: 0.78rem; color: var(--text-muted);">
+              💡 Double / multiple meanings (e.g. 1... 2...) will automatically display on separate lines.
+            </small>
+          </div>
+          <div class="form-group">
+            <label for="customInputNotes">Notes / Big Book Test / Synonyms (Optional)</label>
+            <input type="text" id="customInputNotes" class="form-input" placeholder="e.g., Big Book Test 1, Sec 2 • Syn: prevaricate, hedge">
+          </div>
+          <button type="submit" id="btnAddCustomWord" class="btn-primary-action" style="height: 44px;">
+            Add Word
+          </button>
+        </form>
+      </div>
+
+      <!-- Custom Words List & Search Header -->
+      <div class="custom-words-list-header">
+        <h3 style="font-size: 1.15rem; font-weight: 700;">
+          My Big Book Words (<span id="customListTotalCount">0</span>)
+        </h3>
+        <div class="search-input-wrap" style="max-width: 320px;">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="customSearchInput" class="search-input" style="padding: 0.6rem 1rem 0.6rem 2.6rem; font-size: 0.88rem;" placeholder="Search custom words...">
+        </div>
+      </div>
+
+      <!-- Custom Words Grid -->
+      <div class="custom-words-grid" id="customWordsGrid">
+        <!-- Injected via JS -->
+      </div>
+    </section>
+
+    <!-- ================= VIEW 4: SEARCH & DIRECTORY ================= -->
+    <section class="view-tab view-directory" id="viewDirectory" style="display: none;">
+      <div class="directory-search-bar">
+        <div class="search-input-wrap">
+          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="dirSearchInput" class="search-input" placeholder="Search across all 1,020 GRE words or definitions...">
+        </div>
+        <select id="dirRatingFilter" class="custom-select">
+          <option value="all">All Words</option>
+          <option value="multi">Multiple Meanings (1 & 2)</option>
+          <option value="1">1 • Green (Know)</option>
+          <option value="2">2 • Orange (Review)</option>
+          <option value="3">3 • Red (Hard)</option>
+          <option value="0">Unrated</option>
+        </select>
+      </div>
+
+      <div class="directory-table-wrap">
+        <table class="directory-table">
+          <thead>
+            <tr>
+              <th>Word</th>
+              <th>Group</th>
+              <th>Definition</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="directoryTableBody">
+            <!-- Populated via JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Card Quick Jump Modal -->
+  <div class="modal-overlay" id="gridModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modalDeckTitle">Jump to Card in Group</h3>
+        <button class="btn-icon" id="btnCloseGridModal">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">Click any card number to jump directly to it:</p>
+        <div class="card-nav-grid" id="modalCardNavGrid">
+          <!-- Populated via JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings & Reset Modal -->
+  <div class="modal-overlay" id="settingsModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Statistics & Data Management</h3>
+        <button class="btn-icon" id="btnCloseSettingsModal">✕</button>
+      </div>
+      <div class="modal-body">
+
+        <!-- Focus Mode Setting -->
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Focus Mode</span>
+            <span class="setting-desc">While on Flashcards, only the card is shown — everything else fades away. Press <kbd class="kbd-badge" style="font-size:0.72rem;">F</kbd> to toggle anytime.</span>
+          </div>
+          <button class="focus-toggle-switch" id="btnFocusModeToggle" role="switch" aria-checked="false" title="Toggle Focus Mode (F)">
+            <span class="focus-toggle-knob"></span>
+          </button>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid var(--border-subtle); margin: 0.5rem 0;">
+
+        <div>
+          <h4 style="margin-bottom: 0.5rem; font-size: 1rem;">Overall Mastery Statistics</h4>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <div class="stat-pill pill-green">Green (1): <strong id="globalCount1">0</strong></div>
+            <div class="stat-pill pill-orange">Orange (2): <strong id="globalCount2">0</strong></div>
+            <div class="stat-pill pill-red">Red (3): <strong id="globalCount3">0</strong></div>
+            <div class="stat-pill pill-unrated">Unrated: <strong id="globalCount0">1020</strong></div>
+          </div>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid var(--border-subtle); margin: 0.5rem 0;">
+
+        <div>
+          <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: var(--rating-3);">Reset Ratings</h4>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+            You can clear ratings for only the currently selected group, or completely reset all 34 groups.
+          </p>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <button class="toggle-btn" id="btnResetCurrentGroup" style="color: #fbbf24;">
+              Reset Current Group
+            </button>
+            <button class="toggle-btn" id="btnResetAllGroups" style="color: #f87171;">
+              Reset All 34 Groups
+            </button>
+          </div>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid var(--border-subtle); margin: 0.5rem 0;">
+
+        <div>
+          <h4 style="margin-bottom: 0.5rem; font-size: 1rem;">Export / Backup Progress</h4>
+          <div style="display: flex; gap: 0.75rem;">
+            <button class="toggle-btn" id="btnExportRatings">Export JSON</button>
+            <button class="toggle-btn" id="btnImportRatings">Import JSON</button>
+            <input type="file" id="importFileInput" accept=".json" style="display: none;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Focus Mode Exit Pill (shown only when focus mode is active) -->
+  <button class="focus-exit-pill" id="btnExitFocusMode" title="Exit Focus Mode (F)">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+    Exit Focus
+    <kbd class="kbd-badge" style="font-size:0.68rem; padding: 1px 5px;">F</kbd>
+  </button>
+
+  <!-- Load Data and Application Logic -->
+  <script src="vocab_data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
