@@ -5,7 +5,7 @@ A free, responsive GRE Verbal practice site with three modules: **GregMat's 34 G
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Open%20Web%20App-22c55e?style=for-the-badge&logo=github)](https://sangameeee.github.io/GreFast/)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
 
-👉 **Live App:** [https://sangameeee.github.io/GRE-vocabulary-GregMat-34-Groups-1024-words-flashcard/](https://sangameeee.github.io/GRE-vocabulary-GregMat-34-Groups-1024-words-flashcard/)
+👉 **Live App:** [https://sangameeee.github.io/GreFast/](https://sangameeee.github.io/GreFast/)
 
 ---
 
@@ -109,7 +109,7 @@ Laptop (1440 × 900) on the left, phone (390 × 844) on the right.
 
 1. Clone the repository:
    ```bash
-   git clone git@github.com:Sangameeee/GRE-vocabulary-GregMat-34-Groups-1024-words-flashcard.git
+   git clone git@github.com:Sangameeee/GreFast.git
    ```
 2. Open [`index.html`](index.html) in any browser. There's no build step or server, and it works offline straight from your disk.
 
