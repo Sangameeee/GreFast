@@ -2,7 +2,7 @@
 
 An interactive, responsive flashcard application built for mastering **GregMat's 34 Groups (1,020+ high-frequency GRE words)**, complete with custom word lists, memory ratings, and dedicated practice modes.
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Open%20Web%20App-22c55e?style=for-the-badge&logo=github)](https://sangameeee.github.io/GRE-vocabulary-GregMat-34-Groups-1024-words-flashcard/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Open%20Web%20App-22c55e?style=for-the-badge&logo=github)](https://sangameeee.github.io/GreFast/)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
 
 👉 **Live App:** [https://sangameeee.github.io/GRE-vocabulary-GregMat-34-Groups-1024-words-flashcard/](https://sangameeee.github.io/GRE-vocabulary-GregMat-34-Groups-1024-words-flashcard/)
