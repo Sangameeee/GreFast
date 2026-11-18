@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GRE Reading Comprehension Mastery • 108 Passages (Short & Long)</title>
+  <meta name="description"
+    content="Complete ETS GRE Big Book Reading Comprehension quiz platform featuring all 27 tests, 54 sections, 108 passages (54 Short, 54 Long), and 594 audited questions with split-screen reading, line numbering, instant feedback, and timer.">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Outfit:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/rc.css">
+  <link rel="stylesheet" href="../css/monetization.css">
+</head>
+
+<body>
+
+  <!-- Top App Navigation Bar (Unified Across Suite) -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-group" id="btn-nav-logo" title="Back to Reading Comprehension Hub">
+        <span class="logo-badge">GRE</span>
+        <div class="logo-text-group">
+          <div class="logo-title">Reading Comprehension</div>
+          <div class="logo-subtitle">27 Tests • 108 Passages • 594 Questions</div>
+        </div>
+      </div>
+
+      <!-- Cross-Module Suite Navigation -->
+      <nav class="suite-nav" aria-label="Suite Navigation">
+        <a href="../index.html" class="suite-nav-link" title="Main Hub Home">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          Home
+        </a>
+        <a href="tc.html" class="suite-nav-link" title="ETS Big Book Text Completion Quiz">
+          📝 Text Completion
+        </a>
+        <a href="rc.html" class="suite-nav-link active" title="Current: Reading Comprehension Split-Screen Quiz">
+          📖 Reading Comp
+        </a>
+        <a href="vocab.html" class="suite-nav-link" title="GregMat 34 Groups Vocabulary Master">
+          📚 Vocabulary
+        </a>
+      </nav>
+
+      <!-- Quick Action Controls -->
+      <div class="header-actions">
+        <button class="btn" id="btn-random-quiz" title="Launch a random passage quiz">
+          🎲 Random Quiz
+        </button>
+        <button class="btn-icon" id="btn-reset-stats" title="Reset RC stats" aria-label="Reset Statistics">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+            <path d="M3 3v5h5"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- VIEW 1: DASHBOARD / PASSAGE SELECTION VIEW -->
+  <main id="rc-dashboard-view" class="rc-dashboard">
+    <!-- Hero Banner -->
+    <section class="dashboard-hero">
+      <div class="hero-pill">Official ETS GRE Big Book Collection</div>
+      <h1 class="hero-title">Reading Comprehension Mastery</h1>
+      <p class="hero-desc">
+        Practice every authentic GRE Big Book reading passage. Choose between rapid <strong>Short Passages</strong> (15–25 lines, 3–4 questions) and rigorous <strong>Long Passages</strong> (50–70 lines, 7 questions) in an interactive split-pane reader with line numbering, instant feedback, and examinee difficulty ratings.
+      </p>
+
+      <div class="hero-stats-row">
+        <div class="hero-stat-item">
+          <span class="hero-stat-val" id="stat-total-passages">108</span>
+          <span class="hero-stat-lbl">Passages</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-val" id="stat-short-passages">54</span>
+          <span class="hero-stat-lbl">Short Passages</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-val" id="stat-long-passages">54</span>
+          <span class="hero-stat-lbl">Long Passages</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-val" id="stat-total-questions">594</span>
+          <span class="hero-stat-lbl">Total Questions</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-val" id="stat-user-completed">0 / 108</span>
+          <span class="hero-stat-lbl">Completed</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-val" id="stat-user-accuracy">--%</span>
+          <span class="hero-stat-lbl">Accuracy</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 Quick Mode Launchers -->
+    <section class="dashboard-actions-grid">
+      <div class="mode-card card-short" id="card-launch-short">
+        <span class="mode-card-badge">⚡ Rapid Practice • 3-4 Questions</span>
+        <h2 class="mode-card-title">Short Passages Quiz</h2>
+        <p class="mode-card-desc">
+          Focus on succinct 15–25 line passages. Ideal for mastering quick arguments, main ideas, author attitude, and precision inference in under 5 minutes.
+        </p>
+        <div class="mode-card-btn">
+          Start Short Passage Drill →
+        </div>
+      </div>
+
+      <div class="mode-card card-long" id="card-launch-long">
+        <span class="mode-card-badge">📜 Deep Endurance • 7 Questions</span>
+        <h2 class="mode-card-title">Long Passages Quiz</h2>
+        <p class="mode-card-desc">
+          Tackle comprehensive 50–70 line scholarly articles. Builds stamina for multi-paragraph structural transitions, technical evidence, and dense synthesis.
+        </p>
+        <div class="mode-card-btn">
+          Start Long Passage Drill →
+        </div>
+      </div>
+
+      <div class="mode-card card-section" id="card-launch-section">
+        <span class="mode-card-badge">⏱️ Full Verbal Section • 11 Questions</span>
+        <h2 class="mode-card-title">Full Section RC Drill</h2>
+        <p class="mode-card-desc">
+          Simulate an entire Verbal section's reading requirement: one Short Passage and one Long Passage taken back-to-back under test conditions.
+        </p>
+        <div class="mode-card-btn">
+          Start Full Section RC →
+        </div>
+      </div>
+    </section>
+
+    <!-- Sponsored / Ad Banner Slot -->
+    <div class="gre-ad-container gre-ad-banner" data-gre-ad="banner" data-ad-type="leaderboard"></div>
+
+    <!-- Filter & Search Controls -->
+    <div class="filter-bar">
+      <div class="filter-pills-group" id="filter-type-pills">
+        <button class="filter-pill active" data-type="all">All Passages (108)</button>
+        <button class="filter-pill" data-type="short">⚡ Short Passages (54)</button>
+        <button class="filter-pill" data-type="long">📜 Long Passages (54)</button>
+      </div>
+
+      <div class="filter-selects-group">
+        <select class="filter-select" id="select-test-filter" aria-label="Filter by Test">
+          <option value="all">All 27 Tests</option>
+          <!-- Populated by JS -->
+        </select>
+
+        <select class="filter-select" id="select-status-filter" aria-label="Filter by Status">
+          <option value="all">All Statuses</option>
+          <option value="unattempted">Unattempted</option>
+          <option value="completed">Completed</option>
+          <option value="bookmarked">Bookmarked</option>
+        </select>
+
+        <input type="text" class="filter-search-input" id="input-search-passages"
+          placeholder="Search passages or keywords..." aria-label="Search passages">
+      </div>
+    </div>
+
+    <!-- Passages Grid -->
+    <div class="passages-grid" id="passages-container">
+      <!-- Populated dynamically via JS -->
+    </div>
+  </main>
+
+  <!-- VIEW 2: SPLIT-SCREEN READING & QUIZ VIEW -->
+  <main id="rc-quiz-view" class="rc-quiz-view">
+    <!-- Quiz Top Bar -->
+    <div class="quiz-top-bar">
+      <div class="quiz-top-left">
+        <button class="btn-back-hub" id="btn-back-to-hub">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          All Passages
+        </button>
+
+        <div class="quiz-passage-info">
+          <span class="quiz-passage-tag" id="quiz-passage-tag">Test 1 • Section 1</span>
+          <span class="quiz-passage-badge" id="quiz-passage-badge">Long Passage (7 Qs)</span>
+        </div>
+      </div>
+
+      <div class="quiz-top-center">
+        <!-- Mode Switcher -->
+        <div class="quiz-mode-switch">
+          <button class="quiz-mode-btn active" id="btn-mode-practice" title="Immediate feedback on each question">
+            Practice (Check)
+          </button>
+          <button class="quiz-mode-btn" id="btn-mode-test" title="Timed exam simulation without instant answers">
+            Test (Timed)
+          </button>
+        </div>
+
+        <div class="quiz-timer-display" id="quiz-timer" title="Elapsed Time">
+          ⏱️ <span id="timer-text">00:00</span>
+        </div>
+      </div>
+
+      <div class="quiz-top-right">
+        <!-- Reader Typography Controls -->
+        <button class="reader-control-btn" id="btn-font-smaller" title="Decrease font size">A-</button>
+        <button class="reader-control-btn" id="btn-font-larger" title="Increase font size">A+</button>
+        <button class="reader-control-btn" id="btn-font-family" title="Toggle Times New Roman / Arial">Font: Times New Roman</button>
+        <button class="reader-control-btn" id="btn-line-numbers" title="Toggle line numbers">Lines: On</button>
+      </div>
+    </div>
+
+    <!-- Split-Screen Content (Desktop: Left=Passage, Right=Questions / Mobile: Top=Passage, Bottom=Questions) -->
+    <div class="split-pane-wrapper">
+      <!-- LEFT PANE: PASSAGE TEXT -->
+      <section class="pane-passage" id="pane-passage">
+        <div class="passage-meta-header">
+          <h2 class="passage-headline" id="passage-headline">Passage Title</h2>
+          <div class="passage-meta-sub">
+            <span id="passage-meta-range">Questions 17–23</span>
+            <span>•</span>
+            <span id="passage-meta-wordcount">~550 words</span>
+            <span>•</span>
+            <span id="passage-meta-readtime">~3 min read</span>
+          </div>
+        </div>
+
+        <article class="passage-prose-content show-line-numbers" id="passage-prose-content">
+          <div class="passage-line-ruler" id="passage-line-ruler" aria-hidden="true">
+            <!-- Line markers 5, 10, 15, 20... injected via JS -->
+          </div>
+          <div class="passage-text-body" id="passage-text-body">
+            <!-- Paragraphs injected via JS -->
+          </div>
+        </article>
+      </section>
+
+      <!-- RIGHT PANE: QUESTIONS & CHOICES -->
+      <section class="pane-questions" id="pane-questions">
+        <!-- Question Navigation Bar -->
+        <div class="questions-nav-bar">
+          <div class="question-pills-list" id="question-pills-list">
+            <!-- Question pills 1, 2, 3, 4... injected via JS -->
+          </div>
+          <button class="btn-flag" id="btn-flag-current" title="Flag this question for review">
+            🚩 Flag
+          </button>
+        </div>
+
+        <!-- Question Card -->
+        <div class="question-card" id="question-card">
+          <div class="question-header-row">
+            <span class="question-num-tag" id="question-num-tag">Question 1 of 7 • ETS Q17</span>
+            <span class="difficulty-badge" id="question-difficulty-tag">p+: 65% (Medium)</span>
+          </div>
+
+          <div class="question-prompt" id="question-prompt">
+            <!-- Question Prompt injected via JS -->
+          </div>
+
+          <div class="choices-list" id="choices-list" role="radiogroup" aria-label="Answer choices">
+            <!-- Choices A-E injected via JS -->
+          </div>
+
+          <!-- Feedback & Difficulty Explanation Box -->
+          <div class="question-feedback-box" id="question-feedback-box">
+            <div class="feedback-status-row">
+              <span class="feedback-status-title" id="feedback-status-title">
+                ✓ Correct Answer
+              </span>
+              <span class="difficulty-badge" id="feedback-difficulty-badge">
+                ETS Examinee Accuracy: 65%
+              </span>
+            </div>
+            <p class="feedback-explanation" id="feedback-explanation">
+              Official ETS Answer: <strong id="feedback-official-ans">A</strong>.
+            </p>
+          </div>
+        </div>
+
+        <!-- Action Controls -->
+        <div class="question-actions-bar">
+          <button class="btn" id="btn-prev-question">
+            ← Previous
+          </button>
+
+          <button class="btn btn-primary" id="btn-check-or-next">
+            Check Answer
+          </button>
+
+          <button class="btn" id="btn-next-question">
+            Next →
+          </button>
+        </div>
+
+        <!-- Keyboard Shortcuts Helper -->
+        <div class="shortcut-hints-row">
+          <span><span class="kbd">A</span> - <span class="kbd">E</span> Select</span>
+          <span><span class="kbd">Enter</span> Check / Next</span>
+          <span><span class="kbd">←</span> <span class="kbd">→</span> Navigate</span>
+          <span><span class="kbd">F</span> Flag</span>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- VIEW 3: PASSAGE COMPLETION SUMMARY MODAL -->
+  <div class="modal-overlay" id="summary-modal-overlay">
+    <div class="summary-modal" role="dialog" aria-modal="true" aria-labelledby="modal-score-title">
+      <div class="summary-modal-top">
+        <h2 id="modal-score-title" class="summary-score-large"><span id="modal-score-num">7</span>/<span id="modal-total-num">7</span></h2>
+        <div class="summary-score-sub" id="modal-score-subtitle">Excellent Work! 100% Correct</div>
+      </div>
+
+      <div class="summary-stats-grid">
+        <div class="summary-stat-cell">
+          <div class="summary-stat-cell-val" id="modal-stat-time">04:12</div>
+          <div class="summary-stat-cell-lbl">Time Spent</div>
+        </div>
+        <div class="summary-stat-cell">
+          <div class="summary-stat-cell-val" id="modal-stat-accuracy">100%</div>
+          <div class="summary-stat-cell-lbl">Accuracy</div>
+        </div>
+        <div class="summary-stat-cell">
+          <div class="summary-stat-cell-val" id="modal-stat-avg-p">58%</div>
+          <div class="summary-stat-cell-lbl">Avg Difficulty</div>
+        </div>
+      </div>
+
+      <div class="summary-questions-review">
+        <h3 style="font-size: 0.9rem; font-weight: 700; margin-bottom: 0.75rem; text-transform: uppercase; color: var(--text-light); letter-spacing: 0.04em;">Question Breakdown</h3>
+        <div id="modal-breakdown-list">
+          <!-- Populated via JS -->
+        </div>
+      </div>
+
+      <div class="summary-actions-row">
+        <button class="btn" id="btn-modal-review">
+          Review Questions
+        </button>
+        <button class="btn" id="btn-modal-dashboard">
+          All Passages
+        </button>
+        <button class="btn btn-primary" id="btn-modal-next-passage">
+          Next Passage →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../data/rc_data.js"></script>
+  <script src="../js/rc.js"></script>
+  <!-- Monetization & Subscription Engine -->
+  <script src="../js/monetization.js"></script>
+</body>
+
+</html>
+

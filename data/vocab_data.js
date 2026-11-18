@@ -272,7 +272,7 @@ const VOCAB_DATA = [
       {
         "id": "g2_w2",
         "word": "advocate",
-        "definition": "support; be in favor of someone who supports a cause, organization, or person",
+        "definition": "1. (verb) support; be in favor of 2. (noun) someone who supports a cause, organization, or person",
         "group": 2
       },
       {
@@ -302,7 +302,7 @@ const VOCAB_DATA = [
       {
         "id": "g2_w7",
         "word": "amenable",
-        "definition": "(of a person) receptive to change; open (of a thing) responsive to",
+        "definition": "1. (of a person) receptive to change; open 2. (of a thing) responsive to",
         "group": 2
       },
       {
@@ -380,7 +380,7 @@ const VOCAB_DATA = [
       {
         "id": "g2_w20",
         "word": "convoluted",
-        "definition": "difficult to understand or follow.",
+        "definition": "difficult to understand or follow",
         "group": 2
       },
       {
@@ -1058,7 +1058,7 @@ const VOCAB_DATA = [
       {
         "id": "g5_w15",
         "word": "invasive",
-        "definition": "1. infringing on others privacy 2. spreading rapidly and causing harm",
+        "definition": "1. infringing on others' privacy 2. spreading rapidly and causing harm",
         "group": 5
       },
       {
@@ -1396,7 +1396,7 @@ const VOCAB_DATA = [
       {
         "id": "g7_w9",
         "word": "indefatigable",
-        "definition": "highly determined; resistent to tiring out",
+        "definition": "highly determined; resistant to tiring out",
         "group": 7
       },
       {
@@ -1625,7 +1625,7 @@ const VOCAB_DATA = [
       {
         "id": "g8_w16",
         "word": "nullify",
-        "definition": "To render ineffective, cancel out or invalidate.",
+        "definition": "render ineffective; cancel out or invalidate",
         "group": 8
       },
       {
@@ -2198,7 +2198,7 @@ const VOCAB_DATA = [
       {
         "id": "g11_w18",
         "word": "perfunctory",
-        "definition": "done without enthusiasm or effort;",
+        "definition": "done without enthusiasm or effort",
         "group": 11
       },
       {
@@ -2451,7 +2451,7 @@ const VOCAB_DATA = [
       {
         "id": "g12_w29",
         "word": "verisimilitude",
-        "definition": "appearance or semblance of truth or reality; believability.",
+        "definition": "appearance or semblance of truth or reality; believability",
         "group": 12
       },
       {
@@ -2856,7 +2856,7 @@ const VOCAB_DATA = [
       {
         "id": "g15_w3",
         "word": "apropos",
-        "definition": "appropriate or relevant to the situation.",
+        "definition": "appropriate or relevant to the situation",
         "group": 15
       },
       {
@@ -2898,7 +2898,7 @@ const VOCAB_DATA = [
       {
         "id": "g15_w10",
         "word": "enchant",
-        "definition": "capture the attention or to charm",
+        "definition": "capture the attention of; charm",
         "group": 15
       },
       {
@@ -4430,7 +4430,7 @@ const VOCAB_DATA = [
       {
         "id": "g23_w16",
         "word": "lull",
-        "definition": "1. weak from disease or weariness 2. a brief pause or delay in activity",
+        "definition": "1. a brief pause or delay in activity 2. soothe or calm",
         "group": 23
       },
       {
@@ -5214,7 +5214,7 @@ const VOCAB_DATA = [
       {
         "id": "g27_w22",
         "word": "sentimental",
-        "definition": "characterized by feelings or nostalgia",
+        "definition": "characterized by feelings of nostalgia",
         "group": 27
       },
       {
@@ -5323,7 +5323,7 @@ const VOCAB_DATA = [
       {
         "id": "g28_w9",
         "word": "disdain",
-        "definition": "the state of being despised; shame",
+        "definition": "contempt; the feeling that someone or something is unworthy of respect",
         "group": 28
       },
       {
@@ -7085,7 +7085,7 @@ const CROSS_GROUP_SYNONYMS = [
       {
         "word": "amenable",
         "group": 2,
-        "definition": "(of a person) receptive to change; open (of a thing) responsive to",
+        "definition": "1. (of a person) receptive to change; open 2. (of a thing) responsive to",
         "id": "g2_w7"
       },
       {
@@ -7227,7 +7227,7 @@ const CROSS_GROUP_SYNONYMS = [
       {
         "word": "convoluted",
         "group": 2,
-        "definition": "difficult to understand or follow.",
+        "definition": "difficult to understand or follow",
         "id": "g2_w20"
       },
       {
@@ -7503,22 +7503,10 @@ const CROSS_GROUP_SYNONYMS = [
         "id": "g29_w30"
       },
       {
-        "word": "apex",
-        "group": 0,
-        "definition": "",
-        "id": "syn_apex"
-      },
-      {
-        "word": "acme",
-        "group": 0,
-        "definition": "",
-        "id": "syn_acme"
-      },
-      {
-        "word": "culmination",
-        "group": 0,
-        "definition": "",
-        "id": "syn_culmination"
+        "word": "apogee",
+        "group": 29,
+        "definition": "the peak or highest point of something",
+        "id": "g29_w2"
       }
     ]
   },

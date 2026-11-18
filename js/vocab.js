@@ -324,6 +324,19 @@
       btnFocusModeToggle.classList.toggle('active', focusMode);
       btnFocusModeToggle.setAttribute('aria-checked', focusMode ? 'true' : 'false');
     }
+    const btnDeckFs = document.getElementById('btnToggleFullscreenDeck');
+    if (btnDeckFs) {
+      btnDeckFs.classList.toggle('active', focusMode);
+      btnDeckFs.setAttribute('title', focusMode ? 'Exit Full Screen (Press F)' : 'Full Screen (Press F)');
+    }
+    const shortcutFs = document.getElementById('btnShortcutFullscreen');
+    if (shortcutFs) {
+      shortcutFs.classList.toggle('active', focusMode);
+      shortcutFs.setAttribute('title', focusMode ? 'Exit Full Screen (Press F)' : 'Full Screen (Press F)');
+      shortcutFs.innerHTML = focusMode
+        ? '<span class="kbd-badge">F</span> Exit Full Screen'
+        : '<span class="kbd-badge">F</span> Full Screen';
+    }
   }
 
   // ================= Group Selector Setup =================
@@ -1515,6 +1528,22 @@
     // Focus Mode toggle (in settings modal)
     if (btnFocusModeToggle) {
       btnFocusModeToggle.addEventListener('click', toggleFocusMode);
+    }
+    // Full Screen / Focus Mode toggle button in deck bar
+    const btnDeckFs = document.getElementById('btnToggleFullscreenDeck');
+    if (btnDeckFs) {
+      btnDeckFs.addEventListener('click', toggleFocusMode);
+    }
+    // Full Screen shortcut trigger in shortcuts bar
+    const shortcutFs = document.getElementById('btnShortcutFullscreen');
+    if (shortcutFs) {
+      shortcutFs.addEventListener('click', toggleFocusMode);
+      shortcutFs.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.code === 'Space') {
+          e.preventDefault();
+          toggleFocusMode();
+        }
+      });
     }
     // Exit Focus Mode floating pill
     if (btnExitFocusMode) {

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GRE Big Book - Text Completion Mastery Quiz</title>
+  <meta name="description"
+    content="Complete GRE Big Book Text Completion quiz platform featuring all 27 tests, 54 sections, and 378 questions with Rapid Timed Mode and Practice Prediction Mode.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Outfit:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/tc.css">
+  <link rel="stylesheet" href="../css/monetization.css">
+</head>
+
+<body>
+
+  <!-- Top App Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <a href="tc.html" class="logo-group" id="btn-home-logo" title="Back to TC Dashboard">
+        <span class="logo-badge">GRE</span>
+        <div class="logo-text-group">
+          <div class="logo-title">Text Completion</div>
+          <div class="logo-subtitle">27 Tests • 54 Sections • 378 Questions</div>
+        </div>
+      </a>
+
+      <!-- Navigation to Other Modules -->
+      <nav class="suite-nav" aria-label="Suite Navigation">
+        <a href="../index.html" class="suite-nav-link" title="Main Hub Home">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          Home
+        </a>
+        <a href="tc.html" class="suite-nav-link active" title="Text Completion Practice">
+          📝 Text Completion
+        </a>
+        <a href="rc.html" class="suite-nav-link" title="Reading Comprehension Split-Screen Practice">
+          📖 Reading Comp
+        </a>
+        <a href="vocab.html" class="suite-nav-link" title="Vocabulary Master (Misc)">
+          📚 Vocabulary
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Global Persistent Progress Stats (Clickable) -->
+        <div class="stats-pill" id="global-stats-pill" title="Click to view detailed analytics & progress">
+          <span>Solved: <strong id="header-solved-count">0</strong>/378</span>
+          <span>•</span>
+          <span>Acc: <strong id="header-acc-rate">0%</strong></span>
+        </div>
+
+        <!-- Mode Toggle Switcher -->
+        <div class="mode-toggle-group" id="header-mode-toggle" title="Switch Between Rapid Mode and Practice Guessing Mode">
+          <button class="mode-btn active" id="btn-mode-rapid" title="Rapid Mode: Timed drill, options visible directly">
+            ⚡ Rapid
+          </button>
+          <button class="mode-btn practice" id="btn-mode-practice"
+            title="Practice Mode: Guess blanks before revealing options">
+            📝 Practice
+          </button>
+        </div>
+
+        <button class="btn-icon" id="btn-open-analytics" title="View Detailed Analytics & Progress" aria-label="Statistics">
+          📊
+        </button>
+
+        <button class="btn-icon" id="btn-open-settings" title="Quiz & Timer Settings" aria-label="Settings">
+          ⚙️
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="app-main">
+
+    <!-- VIEW 1: HOME / DASHBOARD SCREEN -->
+    <section class="view-panel active" id="view-home">
+      <!-- Hero Welcome Banner -->
+      <div class="hero-banner">
+        <div class="hero-content">
+          <h1>ETS GRE Big Book Text Completion</h1>
+          <p>Master all 378 classic sentence completion questions across all 27 tests. Build predictive vocabulary
+            reflexes or train your speed with custom rapid timers.</p>
+        </div>
+        <div class="hero-stats-row">
+          <div class="stat-card">
+            <div class="stat-value" id="dash-tests-done">0/27</div>
+            <div class="stat-label">Tests Finished</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="dash-accuracy">0%</div>
+            <div class="stat-label">Accuracy</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="dash-streak">0</div>
+            <div class="stat-label">Sections Done</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sponsored / Ad Banner Slot -->
+      <div class="gre-ad-container gre-ad-banner" data-gre-ad="banner" data-ad-type="leaderboard"></div>
+
+      <!-- Mode Selector Guide -->
+      <div class="modes-showcase">
+        <div class="mode-card">
+          <span class="mode-badge-tag rapid">⚡ Rapid Timed Mode</span>
+          <h3>Speed & Intuition Training</h3>
+          <p>Options (A-E) are visible right away. Manually set your question countdown timer (e.g. 45s, 60s, or section
+            timer) to simulate real exam pressure and build quick pattern-recognition.</p>
+          <button class="btn btn-primary btn-sm" id="btn-quick-rapid-start" style="align-self: flex-start;">
+            Start Next Rapid Test ⚡
+          </button>
+        </div>
+        <div class="mode-card">
+          <span class="mode-badge-tag practice">📝 Practice Prediction Mode</span>
+          <h3>Gre Top-Scorer Strategy</h3>
+          <p>Options are hidden initially. Formulate your own prediction for each blank in dedicated text boxes (up to
+            5+ words), then reveal options to compare against your guesses.</p>
+          <button class="btn btn-terracotta btn-sm" id="btn-quick-practice-start" style="align-self: flex-start;">
+            Start Next Practice Test 📝
+          </button>
+        </div>
+      </div>
+
+      <!-- Tests Grid Header & Search -->
+      <div class="tests-header">
+        <h2>Big Book Tests & Sections</h2>
+        <div class="test-filters">
+          <input type="text" class="search-input" id="test-search-input" placeholder="Search test # or keyword...">
+          <button class="btn btn-sm" id="btn-filter-all">All (27)</button>
+          <button class="btn btn-sm" id="btn-filter-incomplete">Incomplete</button>
+          <button class="btn btn-sm" id="btn-filter-completed">Completed</button>
+        </div>
+      </div>
+
+      <!-- Grid of 27 Tests -->
+      <div class="test-grid" id="tests-grid-container">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- VIEW 2: QUIZ ACTIVE VIEW -->
+    <section class="view-panel" id="view-quiz">
+      <!-- Quiz Top Bar -->
+      <div class="quiz-topbar">
+        <div class="quiz-meta-group">
+          <button class="btn btn-sm" id="btn-quiz-back" title="Return to Tests Menu">
+            ← Tests Menu
+          </button>
+          <div class="quiz-title" id="quiz-section-title">Test 1 • Section 1</div>
+          <span class="quiz-mode-pill rapid" id="quiz-mode-pill">⚡ Rapid Mode</span>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <!-- Timer Display (Rapid Mode) -->
+          <div class="timer-widget" id="quiz-timer-widget" style="display: flex;">
+            <span>⏱️</span>
+            <span id="timer-display">01:00</span>
+            <button class="timer-settings-btn" id="btn-timer-settings" title="Change Timer Duration">⚙️</button>
+          </div>
+
+          <!-- Bookmark Button -->
+          <button class="btn btn-sm btn-icon" id="btn-quiz-bookmark" title="Bookmark Question">
+            ⭐
+          </button>
+        </div>
+      </div>
+
+      <!-- Question Navigation Dots (1 to 7) -->
+      <div class="question-nav-bar" id="question-nav-pills">
+        <!-- Pills 1-7 rendered dynamically -->
+      </div>
+
+      <!-- Question Container Card -->
+      <div class="question-container">
+        <div class="question-header">
+          <span class="q-number-badge" id="q-counter-badge">Question 1 of 7</span>
+          <span class="blank-type-tag" id="q-blank-type-badge">2 Blanks</span>
+        </div>
+
+        <!-- Prompt Sentence with Highlighted Blanks -->
+        <div class="sentence-prompt" id="q-sentence-prompt">
+          <!-- Text rendered dynamically -->
+        </div>
+
+        <!-- PRACTICE MODE: Prediction Text Box Area -->
+        <div class="practice-guessing-area" id="practice-guessing-box" style="display: none;">
+          <div class="practice-area-header">
+            <div class="practice-title-group">
+              <h4>🎯 Step 1: Guess & Predict Before Choices</h4>
+              <p>Type your prediction or synonym for each blank (holds 5+ words, tone, clues) before seeing options.</p>
+            </div>
+          </div>
+
+          <div class="guess-inputs-grid" id="guess-inputs-grid">
+            <div class="guess-box-group">
+              <label class="guess-box-label">
+                <span>Blank 1 Prediction:</span>
+                <span class="shortcut-hint" id="word-count-1">0 words</span>
+              </label>
+              <input type="text" class="guess-input" id="input-guess-1"
+                placeholder="Type your guess for Blank 1 (e.g. recognize, admit)..." autocomplete="off">
+            </div>
+
+            <div class="guess-box-group" id="guess-group-2">
+              <label class="guess-box-label">
+                <span>Blank 2 Prediction:</span>
+                <span class="shortcut-hint" id="word-count-2">0 words</span>
+              </label>
+              <input type="text" class="guess-input" id="input-guess-2"
+                placeholder="Type your guess for Blank 2 (e.g. overlooked, dismissed)..." autocomplete="off">
+            </div>
+          </div>
+
+          <div class="reveal-options-action">
+            <span class="shortcut-hint">Tip: Formulating an organic prediction prevents falling for GRE trap
+              answers.</span>
+            <button class="btn btn-terracotta" id="btn-reveal-options">
+              Show Options & Compare Predictions 👁️
+            </button>
+          </div>
+        </div>
+
+        <!-- User Predictions Comparison Banner (Visible after reveal in Practice Mode) -->
+        <div class="user-guesses-banner" id="user-guesses-banner" style="display: none;">
+          <div style="font-weight: 600; font-size: 0.85rem; color: var(--accent-purple);">
+            Your Predictions:
+          </div>
+          <div class="guesses-chips-wrap" id="guesses-chips-container">
+            <!-- Chips rendered dynamically -->
+          </div>
+          <button class="btn btn-sm" id="btn-edit-guesses" style="margin-left: auto;">
+            ✏️ Edit Guess
+          </button>
+        </div>
+
+        <!-- Choices List (A, B, C, D, E) -->
+        <div class="choices-wrapper" id="choices-container">
+          <!-- Rendered dynamically -->
+        </div>
+
+        <!-- Explanation & Full Sentence Card -->
+        <div class="explanation-card" id="explanation-card">
+          <div class="explanation-header">
+            <span>✅</span>
+            <span>Complete Sentence Solution</span>
+          </div>
+          <div class="full-solution-sentence" id="full-solution-sentence">
+            <!-- Filled sentence rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Footer Navigation Controls -->
+        <div class="question-footer">
+          <button class="btn" id="btn-prev-q">
+            ← Previous
+          </button>
+
+          <div class="nav-buttons-group">
+            <button class="btn btn-primary" id="btn-next-q">
+              Next Question →
+            </button>
+            <button class="btn btn-primary" id="btn-finish-section" style="display: none;">
+              Finish Section ✓
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: RESULTS / REVIEW VIEW -->
+    <section class="view-panel" id="view-results">
+      <div class="results-card">
+        <div class="score-circle">
+          <div class="score-num" id="res-score-num">7</div>
+          <div class="score-denom">/ 7</div>
+        </div>
+
+        <h2 class="results-title" id="res-title">Section Completed!</h2>
+        <p class="results-subtitle" id="res-subtitle">
+          Great job! Review your performance, predictions, and accurate ETS answers below.
+        </p>
+
+        <!-- Breakdown Table -->
+        <table class="results-breakdown-table">
+          <thead>
+            <tr>
+              <th>Question</th>
+              <th>Type</th>
+              <th>Your Guess (Practice)</th>
+              <th>Your Answer</th>
+              <th>Correct Answer</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="results-table-body">
+            <!-- Rendered dynamically -->
+          </tbody>
+        </table>
+
+        <!-- Results Actions -->
+        <div class="results-actions">
+          <button class="btn btn-primary" id="btn-res-next-section">
+            Proceed to Next Section →
+          </button>
+          <button class="btn" id="btn-res-retake">
+            Retake This Section ↺
+          </button>
+          <button class="btn" id="btn-res-home">
+            Return to All Tests 🏠
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL: TIMER CONFIGURATION -->
+  <div class="modal-overlay" id="modal-timer">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3>Rapid Timer Settings</h3>
+        <button class="modal-close-btn" id="btn-close-timer-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.875rem; color: var(--text-muted);">
+          Choose your target pace per question or set a custom time. When the timer hits zero, you will be notified.
+        </p>
+        <div style="font-weight: 600; font-size: 0.85rem; margin-top: 0.5rem;">Preset Times per Question:</div>
+        <div class="timer-presets-grid">
+          <button class="timer-preset-btn" data-seconds="30">30 Seconds</button>
+          <button class="timer-preset-btn active" data-seconds="45">45 Seconds</button>
+          <button class="timer-preset-btn" data-seconds="60">60 Seconds</button>
+          <button class="timer-preset-btn" data-seconds="90">90 Seconds</button>
+          <button class="timer-preset-btn" data-seconds="120">2 Minutes</button>
+          <button class="timer-preset-btn" data-seconds="0">Untimed</button>
+        </div>
+
+        <div style="font-weight: 600; font-size: 0.85rem; margin-top: 1rem;">Custom Seconds per Question:</div>
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <input type="number" id="input-custom-timer" class="search-input" min="10" max="600" value="60"
+            style="width: 100px;">
+          <span style="font-size: 0.875rem; color: var(--text-muted);">seconds per question</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="btn-save-timer">Save & Apply</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: DETAILED ANALYTICS & RESET -->
+  <div class="modal-overlay" id="modal-analytics">
+    <div class="modal-window" style="max-width: 650px;">
+      <div class="modal-header">
+        <h3>Your Progress & Persistence Storage</h3>
+        <button class="modal-close-btn" id="btn-close-analytics-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.875rem; color: var(--text-muted);">
+          All your quiz attempts, scores, and practice predictions are automatically recorded in persistent local
+          browser storage.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.5rem 0;">
+          <div class="stat-card">
+            <div class="stat-value" id="modal-stat-total">0</div>
+            <div class="stat-label">Total Answered</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="modal-stat-accuracy">0%</div>
+            <div class="stat-label">Accuracy Rate</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="modal-stat-sections">0/54</div>
+            <div class="stat-label">Sections Done</div>
+          </div>
+        </div>
+
+        <div style="font-weight: 600; font-size: 0.9rem; margin-top: 0.5rem;">Storage Management:</div>
+        <div
+          style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-md); font-size: 0.85rem; color: var(--text-muted);">
+          Storage Key: <code style="font-weight: 600; color: var(--text-main);">GRE_BIGBOOK_TC_STORAGE_V1</code><br>
+          Status: <span style="color: var(--success); font-weight: 600;">Active & Synced</span>
+        </div>
+      </div>
+      <div class="modal-footer" style="justify-content: space-between;">
+        <button class="btn" id="btn-reset-storage" style="color: var(--danger); border-color: var(--danger-border);">
+          ⚠️ Clear All Saved Progress
+        </button>
+        <button class="btn btn-primary" id="btn-close-analytics-footer">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Embedded Dataset Script (Loads 378 questions) -->
+  <script src="../data/tc_data.js"></script>
+  <!-- Application Logic -->
+  <script src="../js/tc.js"></script>
+  <!-- Monetization & Subscription Engine -->
+  <script src="../js/monetization.js"></script>
+
+</body>
+
+</html>

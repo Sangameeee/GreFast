@@ -1,4 +1,4 @@
-# OS generated files
+# Operating System
 .DS_Store
 .DS_Store?
 ._*
@@ -7,11 +7,30 @@
 ehthumbs.db
 Thumbs.db
 
-# Python cache
+# Python & Tooling Caches
 __pycache__/
 *.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+env/
+venv/
+ENV/
 
-# Local macOS App & Notes
-GRE_Vocab_Master.app/
-mistakes
-steps.md
+# Private sources: PDFs, scripts, raw data, notes (agent.md), archives (never pushed)
+private_sources/
+*.pdf
+*.py
+
+# Internal notes (not part of the site)
+agent.md
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Archives
+*.zip
